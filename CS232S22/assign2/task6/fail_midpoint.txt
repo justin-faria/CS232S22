@@ -1,0 +1,5 @@
+Midpoint Failures
+
+We used the inputs 2147483647 in both x and y spots to induce an addition overflow for the midpoint_original function. This caused it to fail because the sum of the low and high values is greater than the maximum value (2^31-1) that the function can hold. The overflow that is caused by adding x and y turns the sum into a negative value, even when divided by two. 
+
+Next, we used the inputs -1 and INT_MIN to cause failure for midpoint_A because the values cause a subtraction overflow.  The function fails because the subtraction of the low and high values is less than the minimum value (-2^31) that the function can hold. This results in the negative value becoming a large positive integer. We also used the values of 2 and INT_MIN to cause a second subtraction overflow.
