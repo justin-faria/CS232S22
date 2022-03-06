@@ -1,19 +1,28 @@
-/* Example: bubble sort strings in array */
-
-#include <stdio.h>  /* Need for standard I/O functions */
-#include <string.h> /* Need for strlen() */
-
+#include <stdio.h>  
+#include <string.h> 
+#include <stdlib.h>
 
 #define NUM 30   /* number of strings */
 #define LEN 1200  /* max length of each string */
 
+void SortNames(char** Sorted, int Count)
+{
+  for (int j = 0; j < Count -1; j++) {
+    for (int i = 0; i < Count -1; i++) {
+      if (0 < strcmp(Sorted[i], Sorted[i +1])) {
+        char* pchTemp = Sorted[i+1];
+        Sorted[i+1] = Sorted[i];
+        Sorted[i] = pchTemp;
+      }
+    }
+  }
+}
 int main()
 {
   char * Strings[NUM];
+  int j;
 
-  printf("Please enter %d strings, one per line:\n", NUM);
-
-  /* Write a for loop here to read NUM strings.
+ /* Write a for loop here to read NUM strings.
 
      Use fgets(), with LEN as an argument to ensure that an input line that is too
      long does not exceed the bounds imposed by the string's length. However, each 
@@ -22,13 +31,26 @@ int main()
 	 be LEN bytes long.  
 	 Note that the newline and NULL characters will be included in LEN.
   */
+  printf("Please enter %d strings, one per line:\n", NUM);
+    
+  for(int i=0;i<NUM;i++){
+    Strings[i] = (char*)malloc(LEN-2);
+    fgets(Strings[i], LEN-2, stdin);
+    
+    j++;
+    
+    
+    
+  }
+    
+   puts("\nHere are the strings in the order you entered:");
+/* Write a for loop here to print all the strings. */
 
-  puts("\nHere are the strings in the order you entered:");
-
-  /* Write a for loop here to print all the strings. */
-
-  
-  /* Bubble sort */
+    for(int i=0;i<NUM;i++){
+    
+    printf("%s\n",Strings[i]);
+    
+  }
   /* Write code here to bubble sort the strings in ascending alphabetical order
 
      Your code must meet the following requirements:
@@ -41,10 +63,12 @@ int main()
       (iii) You are allowed to use strlen() to calculate string lengths.
   */
   /* Output sorted list */
-  
+ SortNames(Strings, NUM);
   puts("\nIn alphabetical order, the strings are:");     
-  /* Write a for loop here to print all the strings. Feel free to use puts/printf
-     etc. for printing each string.
-  */
-
+ 
+  for(int i = 0;i<NUM;i++){
+    
+    printf("%s\n",Strings[i]);
+  }       
+        
 }

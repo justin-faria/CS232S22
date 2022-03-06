@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 
 int main(int argc, char *argv[]) {
 /* example:
@@ -17,7 +18,16 @@ int main(int argc, char *argv[]) {
    return 0;
 
  */
+  int test = 0;
+  printf("\nPlease Enter A Character or String\n");
 
+  while((test = getchar())!=EOF){
+    if(islower(test))
+    test -= 32;
+    putchar(test);
+      
+  }
+  putchar('\n');
     return 0;
 }
 

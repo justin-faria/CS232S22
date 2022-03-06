@@ -13,10 +13,13 @@ int main()
   int length;
   
   puts("Type some text (then ENTER):");
+  fgets(text,MAX,stdin);
+  i = strlen(text);
+  length = i;
   
   /* Save typed characters in text[]: */
     
-  for (i = 0; i < MAX; i++)
+  /*for (i = 0; i < MAX; i++)
   {
     text[i] = getchar();
     if (text[i] == '\n')

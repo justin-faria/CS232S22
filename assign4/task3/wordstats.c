@@ -8,8 +8,18 @@ int main () {
   int letter_frequency[26] = {0};
   int len, i;
   char buf[MAX_BUF];
-
+  printf("please enter a string then press enter twice\n");
   do {
+    if(scanf("%[^\n]s",buf)==1)
+      len = strlen(buf);
+    else len = 0;
+    for(int j=0; j<len; ++j){
+      if (buf[j] >= 'A' && buf[j] <= 'Z')
+        letter_frequency[buf[j] - 'A']++;
+      else if (buf[j] >= 'a' && buf[j] <= 'z')
+        letter_frequency[buf[j] - 'a']++;
+   }
+    getchar();
   } while (len > 1);
 
   printf("Distribution of letters in corpus:\n");
